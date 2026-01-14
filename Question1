@@ -1,0 +1,26 @@
+**********SBOM****************
+
+Sample question:-
+
+A deployment named fruits in the namespace salad has three containers:
+
+    apple
+    banana, and
+    kiwi
+
+One of these containers has the package curl installed. Identify which container has that package from the running containers, and create an SBOM SPDX for the container's image.
+
+Use the tarball archive of that particular image stored under /root/ImageTarballs directory for generating the SPDX JSON. The archives have names matching their images.
+
+Save the output in ~/bugged-fruit.spdx. Save the container name in ~/bugged-container.txt.
+
+Note: bom as well as all its required dependencies have already been installed.
+ 
+Answer:-
+
+Key word is bom and --help and navigate this belo command to generate the spdx report and save it 
+
+bom generate \
+  --image /root/ImageTarballs/<image-name>.tar \
+  --format json \
+  -o ~/bugged-fruit.spdx 
