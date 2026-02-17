@@ -1,2 +1,3 @@
 netstat -np >>>>> gives you port list
 probmod >>>>> all the kernal modules 
+kubectl auth can-i --list --as=system:serviceaccount:omni:frontend   list all the verb that serviceaccount can do 
