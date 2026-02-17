@@ -1,3 +1,4 @@
 netstat -np >>>>> gives you port list
 probmod >>>>> all the kernal modules 
-kubectl auth can-i --list --as=system:serviceaccount:omni:frontend   list all the verb that serviceaccount can do 
+RBAC kubectl auth can-i --list --as=system:serviceaccount:omni:frontend   list all the verb that serviceaccount can do 
+APPARMOR For loading apparmor go to the doc file and place the command and mention it in the security context the recreate pod it will take the profile from local host and we can mention it as runtime default 
