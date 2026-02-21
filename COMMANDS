@@ -3,3 +3,22 @@ probmod >>>>> all the kernal modules
 RBAC kubectl auth can-i --list --as=system:serviceaccount:omni:frontend   list all the verb that serviceaccount can do 
 APPARMOR For loading apparmor go to the doc file and place the command and mention it in the security context the recreate pod it will take the profile from local host and we can mention it as runtime default 
 FALCO remember the path /etc/falco/falco rules for the rules file 
+********************************
+For PSP pod security policy make sure all these are mentioned and pod is running check for the kubectl get deploy in yaml file and see the message out of it for the hint 
+spec:
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      readOnlyRootFilesystem: true
+************************************
