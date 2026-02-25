@@ -22,3 +22,9 @@ spec:
           - ALL
       readOnlyRootFilesystem: true
 ************************************
+
+Kubebench >>> kube-bench -h and navigate the config file get it ready 
+make the coreection nessarry and fix it 
+
+For falco if there is rule we need to edit it to means we can copy the rule form default file and place in local file and make the log to be recoreded in the other path inside the falco.yaml file 
+the restart the falco service and check useing journalclt -u falco command 
