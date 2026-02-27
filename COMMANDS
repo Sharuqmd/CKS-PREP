@@ -28,3 +28,19 @@ make the coreection nessarry and fix it
 
 For falco if there is rule we need to edit it to means we can copy the rule form default file and place in local file and make the log to be recoreded in the other path inside the falco.yaml file 
 the restart the falco service and check useing journalclt -u falco command 
+**************************************
+Question*************
+We need to ensure that when pods are created in this cluster, they cannot use the latest image tag, irrespective of the repository being used.
+
+To achieve this, a simple Admission Webhook Server has been developed and deployed. A service called image-bouncer-webhook is deployed in the cluster. This Webhook server ensures that the developers of the team cannot use the latest image tag. Use the following specs to integrate it with the cluster using an ImagePolicyWebhook:
+
+    Create a new admission configuration file at /etc/admission-controllers/admission-configuration.yaml
+
+    The kubeconfig file with the credentials to connect to the webhook server is located at /root/CKS/ImagePolicy/admission-kubeconfig.yaml. Note: The /root/CKS/ImagePolicy/ directory is already mounted on the kube-apiserver at path /etc/admission-controllers, so reference that path in reference the admission configuration.
+
+    Ensure that if the latest tag is used, the request must be rejected at all times.
+
+    Enable the Admission Controller.
+
+
+Finally, delete the existing pod in the magnum namespace that violates the policy and recreate it, ensuring the same image but using tag 1.27.
